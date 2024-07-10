@@ -9,7 +9,7 @@ import {
   CartForm,
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/lib/variants';
-// import { BeakerIcon } from '@heroicons/react/24/solid'
+import {GlobeAltIcon, StarIcon, HeartIcon, CheckBadgeIcon, FireIcon } from '@heroicons/react/24/outline';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -102,23 +102,6 @@ function redirectToFirstVariant({product, request}) {
   );
 }
 
-const emptyStarsIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="size-6"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
-    />
-  </svg>
-);
-
 export default function Product() {
   /** @type {LoaderReturnData} */
   const {product, variants} = useLoaderData();
@@ -171,7 +154,7 @@ function ProductMain({selectedVariant, product, variants}) {
       <br />
       <div className="flex">
         {[1, 2, 3, 4, 5].map((star) => {
-          return emptyStarsIcon;
+          return <StarIcon className="size-6" />;
         })}
       </div>
       <br />
@@ -216,12 +199,33 @@ function ProductMain({selectedVariant, product, variants}) {
       </Suspense>
       <br />
       <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-      <br />
+
+      <div className="product-description">
+        {/* <p>
+          <strong>Description</strong>
+        </p> */}
+        <ul>
+          <li className="flex gap-x-2">
+            <GlobeAltIcon className="size-6 " />
+            Free Express Shipping Over $149
+          </li>
+          <li className="flex gap-x-2">
+            {' '}
+            <HeartIcon className="size-6" />
+            Supports Japanese Family Businesses
+          </li>
+          <li className="flex gap-x-2">
+          <FireIcon className="size-6 " />
+            Dairy-free, Gluten-Free, Eggs-free, Soy-free, Vegan, and Vegetarian
+          </li>
+          
+          <li className="flex gap-x-2"> <CheckBadgeIcon className="size-6 " />Limited Edition</li>
+        </ul>
+
+        <br />
+        <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+        <br />
+      </div>
     </div>
   );
 }
@@ -347,9 +351,14 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            className="bg-sky-800 w-full text-white rounded-md p-4 hover:bg-white hover:text-sky-800 hover:border-sky-800 hover:border-2 border-2 border-sky-800 "
           >
             {children}
           </button>
+          <p className="mt-4">
+            <span className="underline">Login</span> for{' '}
+            <span className="underline">Loyalty Member Discounts</span>
+          </p>
         </>
       )}
     </CartForm>

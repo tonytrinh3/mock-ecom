@@ -13,6 +13,7 @@
   },
   "prettier": "@shopify/prettier-config",
   "dependencies": {
+    "@heroicons/react": "^2.1.4",
     "@remix-run/react": "^2.8.0",
     "@remix-run/server-runtime": "^2.8.0",
     "@shopify/cli": "3.58.0",
@@ -21,7 +22,6 @@
     "@shopify/remix-oxygen": "^2.0.4",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
-    "heroicons": "^2.1.4",
     "isbot": "^3.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
