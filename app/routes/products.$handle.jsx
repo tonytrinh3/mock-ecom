@@ -168,13 +168,29 @@ function ProductMain({selectedVariant, product, variants}) {
     <div className="product-main">
       <h1 className="text-4xl">{title}</h1>
 
-      {/* <BeakerIcon className="size-6 text-blue-500" /> */}
+      <br />
       <div className="flex">
         {[1, 2, 3, 4, 5].map((star) => {
           return emptyStarsIcon;
         })}
       </div>
+      <br />
+      <div className="text-black bg-stone-400 rounded-md px-6 py-4">
+        <p>
+          Get $15 off $150+, or $25 off $200+, using code SUMMERFUN at checkout!
+        </p>
+      </div>
+      <br />
       <ProductPrice selectedVariant={selectedVariant} />
+      <br />
+      <div className="text-yellow-500 text-lg flex items-center gap-x-4">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+        </span>
+        <p>Low stock - 6 items left</p>
+      </div>
+
       <br />
       <Suspense
         fallback={
@@ -217,7 +233,7 @@ function ProductMain({selectedVariant, product, variants}) {
  */
 function ProductPrice({selectedVariant}) {
   return (
-    <div className="product-price">
+    <div className="product-price text-xl">
       {selectedVariant?.compareAtPrice ? (
         <>
           <p>Sale</p>
