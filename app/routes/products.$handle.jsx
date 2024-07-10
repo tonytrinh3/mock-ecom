@@ -9,7 +9,13 @@ import {
   CartForm,
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/lib/variants';
-import {GlobeAltIcon, StarIcon, HeartIcon, CheckBadgeIcon, FireIcon } from '@heroicons/react/24/outline';
+import {
+  GlobeAltIcon,
+  StarIcon,
+  HeartIcon,
+  CheckBadgeIcon,
+  FireIcon,
+} from '@heroicons/react/24/outline';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -215,16 +221,38 @@ function ProductMain({selectedVariant, product, variants}) {
             Supports Japanese Family Businesses
           </li>
           <li className="flex gap-x-2">
-          <FireIcon className="size-6 " />
+            <FireIcon className="size-6 " />
             Dairy-free, Gluten-Free, Eggs-free, Soy-free, Vegan, and Vegetarian
           </li>
-          
-          <li className="flex gap-x-2"> <CheckBadgeIcon className="size-6 " />Limited Edition</li>
+
+          <li className="flex gap-x-2">
+            {' '}
+            <CheckBadgeIcon className="size-6 " />
+            Limited Edition
+          </li>
         </ul>
 
         <br />
         <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
         <br />
+      </div>
+
+      <div className="product-details flex flex-col gap-y-6">
+        <h3 className='text-lg'>Details</h3>
+        <ul className='list-disc ml-8'>
+          <li>Product of Kyoto</li>
+          <li>Common Allergens: None</li>
+          <li>Also Contains: Alcohol</li>
+          <li>Vegetarian, Vegan, Gluten-Free</li>
+          <li>1 Box (5 Pieces, 5 Flavors)</li>
+        </ul>
+        <p className='italic'>
+          <span className='font-bold not-italic'>DISCLAIMER:</span> Note that the common allergens and dietary restrictions
+          listed here are directly translated from the packaging as reference;
+          we cannot guarantee the presence or lack of certain allergens/animal
+          products in the items so please consume them at your own risk with
+          careful attention to any personal health concerns.
+        </p>
       </div>
     </div>
   );
